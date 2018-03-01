@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - LivePaper
+  - DeadPaper
+  - Line
+  - DrawnLine
+  - Pen
+  - Doodle
+  - NotDrawn
+  - Ink
   layers:
   - Default
   - TransparentFX
@@ -38,6 +46,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Walls
+    uniqueID: 1817179241
+    locked: 0
+  - name: background
+    uniqueID: 660347151
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Front
+    uniqueID: 2783410529
     locked: 0
