@@ -31,9 +31,9 @@ public class TopPenUpdatePosition : MonoBehaviour
     {
         transform.position = ThisPos; 
         
-
-        transform.position = new Vector3(Circle.transform.position.x, Pen.transform.position.y-Space, transform.position.z);
-
+		if (GameManager.Alive) {
+			transform.position = new Vector3 (Circle.transform.position.x, Pen.transform.position.y - Space, transform.position.z);
+		}
 
     }
 }

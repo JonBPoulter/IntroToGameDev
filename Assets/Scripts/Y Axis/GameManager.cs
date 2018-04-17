@@ -10,14 +10,14 @@ public class GameManager : MonoBehaviour {
     static public bool Drawing=true;
     public GameObject InkSize;
     private bool Drew = false;
+	public static bool Alive = true;
     static public float AmountofInk=5000;
     public float InkDecrease;
  
 	// Use this for initialization
 	void Start () {
+		
         Ink = AmountofInk;
-        
-        
 		
 	}
 	
@@ -55,7 +55,11 @@ public class GameManager : MonoBehaviour {
         }
     private void LoadScene()
     {
-        SceneManager.LoadScene("OutroClip");
+       // SceneManager.LoadScene("OutroClip");
     }
+
+	public void RestartGame(){
+		SceneManager.LoadScene ("X Axis");
+	}
     
 }

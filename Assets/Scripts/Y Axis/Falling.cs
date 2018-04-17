@@ -60,7 +60,11 @@ public class Falling : MonoBehaviour
     {
         if (Col.gameObject.tag == "Doodle")
         {
-            Destroy(gameObject);
+			Destroy(Col.gameObject);
+			GameManager.Ink /= 2;
+			Debug.Log ("Aaaa hit Remaining ink: " + GameManager.Ink);
+			StartCoroutine (hitColor());
+            //Destroy(gameObject);
            // Debug.Log("Destroyed");
         }
         else if (Col.gameObject.tag == "Ink")
@@ -68,6 +72,21 @@ public class Falling : MonoBehaviour
             GameManager.Ink = GameManager.Ink + 50;
         }
     }
+
+	IEnumerator hitColor(){
+		WaitForSeconds wait = new WaitForSeconds (0.1f);
+		int count = 0;
+
+		while (count < 3) {
+			if (count % 2 != 0) {
+				GameObject.Find ("Square").GetComponent<SpriteRenderer> ().color = Color.yellow;
+			}else
+				GameObject.Find ("Square").GetComponent<SpriteRenderer> ().color = Color.red;
+			
+			count++;
+			yield return wait;
+		}
+	}
     /*private void OnCollisionStay2D(Collision2D col)
     {
         if (col.gameObject.tag == "Line")

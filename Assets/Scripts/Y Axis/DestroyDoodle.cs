@@ -24,7 +24,7 @@ public class DestroyDoodle : MonoBehaviour {
     {
         if (Col.gameObject.tag == "Doodle")
         {
-            Destroy(Col.gameObject);
+           // Destroy(Col.gameObject);
         }
         //Ignore();
         

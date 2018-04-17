@@ -18,8 +18,8 @@ public class CameraFollow : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-
-        transform.position = new Vector3(Pen.transform.position.x + offset, transform.position.y, transform.position.z);
-
+		if (GameManager.Alive) {
+			transform.position = new Vector3 (Pen.transform.position.x + offset, transform.position.y, transform.position.z);
+		}
     }
 }

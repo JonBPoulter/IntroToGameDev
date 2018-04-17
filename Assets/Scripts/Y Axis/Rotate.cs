@@ -46,7 +46,7 @@ public class Rotate : MonoBehaviour
         BottomPeny = BotPen.transform.position.y;
 
         float Angle = Vector2.Angle(BotPen.transform.position, TopPen);
-        Debug.Log(Angle + "ll");
+       // Debug.Log(Angle + "ll");
         transform.Rotate(new Vector3(transform.rotation.x, transform.rotation.y, rotateSpeed * Input.GetAxis("Mouse ScrollWheel")));
 
 

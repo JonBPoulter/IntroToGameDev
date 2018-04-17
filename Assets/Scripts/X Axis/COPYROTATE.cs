@@ -14,7 +14,8 @@ public class COPYROTATE : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.rotation = Pen.transform.rotation;
-		
+		if (GameManager.Alive) {
+			transform.rotation = Pen.transform.rotation;
+		}
 	}
 }

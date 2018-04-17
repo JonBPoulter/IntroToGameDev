@@ -8,6 +8,7 @@ public class SinMovement : MonoBehaviour {
         public float frequency = 20.0f;  // Speed of sine movement
         public float magnitude = 0.5f;   // Size of sine movement
         public float magInc = 1f;
+		public float returnToRest;
         public float frequencyinc=.25f;
         private Vector3 axis;
         public float currentPos;
@@ -29,6 +30,7 @@ public class SinMovement : MonoBehaviour {
             currentColor = 0;
             trail.startColor = colors[currentColor];
             Trailwidth = .25f;
+			returnToRest = 0.025f;
         StartCoroutine(TrailW());
 
         }
@@ -37,12 +39,14 @@ public class SinMovement : MonoBehaviour {
         void Update()
         {
         GameManager.Drawing = true;
-         pos += transform.up * Time.deltaTime * MoveSpeed;
-         float sin = Mathf.Sin(Time.time * frequency) * magnitude;
-         transform.position = pos + axis * Mathf.Sin(Time.time * frequency) * magnitude;
-         currentPos = sin;
-        trail.startColor = colors[currentColor];
-        
+
+		if (GameManager.Alive) {
+			pos += transform.up * Time.deltaTime * MoveSpeed;
+			float sin = Mathf.Sin (Time.time * frequency) * magnitude;
+			transform.position = pos + axis * Mathf.Sin (Time.time * frequency) * magnitude;
+			currentPos = sin;
+			trail.startColor = colors [currentColor];
+		}
         
 
         if  (Input.GetAxis("Mouse ScrollWheel")>0)
@@ -53,12 +57,18 @@ public class SinMovement : MonoBehaviour {
 
             }
 
-            if (Input.GetAxis("Mouse ScrollWheel")<0)
-            {
+        if (Input.GetAxis("Mouse ScrollWheel")<0)
+         	{
 
                 magnitude -= magInc;
 
             }
+		if (Input.GetAxis("Mouse ScrollWheel")==0)
+		{
+
+			magnitude = Mathf.Lerp (magnitude, 0, returnToRest);
+
+		}
 
         if (Input.GetKeyDown(KeyCode.A))
         {
