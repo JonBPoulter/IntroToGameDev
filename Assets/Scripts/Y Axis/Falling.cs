@@ -7,7 +7,7 @@ public class Falling : MonoBehaviour
     public float fallingspeed;
     public static bool Pageturn = false;
     public float pagesturned;
-
+    public GameObject Camera;
 
     // Use this for initialization
     void Start()
@@ -18,7 +18,13 @@ public class Falling : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+
     {
+        if (GameManager.Drawing)
+        {
+         
+
+        }
         transform.position += new Vector3(0, fallingspeed * Time.deltaTime, 0);
 
         if (Pageturn)
@@ -30,18 +36,18 @@ public class Falling : MonoBehaviour
 
             fallingspeed = fallingspeed - .75f;
             Pageturn = false;
-            Debug.Log(fallingspeed);
+           // Debug.Log(fallingspeed);
             }
             else if (pagesturned > 10 && pagesturned<15)
             {
                 fallingspeed = fallingspeed - .5f;
-                Debug.Log(fallingspeed);
+                //Debug.Log(fallingspeed);
                 Pageturn = false;
             }
             else if (pagesturned > 15)
             {
                 fallingspeed = fallingspeed -.1f;
-                Debug.Log(fallingspeed);
+                //Debug.Log(fallingspeed);
                 Pageturn = false;
             }
 
@@ -55,13 +61,19 @@ public class Falling : MonoBehaviour
         if (Col.gameObject.tag == "Doodle")
         {
             Destroy(gameObject);
-            Debug.Log("Destroyed");
+           // Debug.Log("Destroyed");
         }
         else if (Col.gameObject.tag == "Ink")
         {
             GameManager.Ink = GameManager.Ink + 50;
         }
     }
-    
+    /*private void OnCollisionStay2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Line")
+        {
+            transform.position=
+        }
+    }*/
 }
     

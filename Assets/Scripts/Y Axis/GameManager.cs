@@ -1,21 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
-    public GameObject[] JustDrawn;
-    public GameObject[] Drawn;
     public GameObject Pen;
     public bool Move=false;
     static public float Ink;
-    static public bool Drawing=false;
-    public GameObject InkLevel;
+    static public bool Drawing=true;
+    public GameObject InkSize;
     private bool Drew = false;
-   
+    static public float AmountofInk=5000;
+    public float InkDecrease;
  
 	// Use this for initialization
 	void Start () {
-        Ink = 1000;
+        Ink = AmountofInk;
         
         
 		
@@ -24,42 +24,38 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         
-
-        JustDrawn = GameObject.FindGameObjectsWithTag("NotDrawn");
-        foreach(GameObject i in JustDrawn)
-        {
-            i.tag = "Doodle";
-        }
-        Drawn = GameObject.FindGameObjectsWithTag("Doodle");
+        
         ShrinkInk();
 
         if (Ink == 0)
         {
             Destroy(Pen);
+            Destroy(InkSize);
+            LoadScene();
+            
         }
     
 		
 	}
     void ShrinkInk()
     {
-        Vector3 InkLevel = transform.localScale;
-        InkLevel.y = (Ink / 1000);
+        
       
             if (Drawing)
             {
-                Ink  = Ink - 1;
+                Ink  = Ink - InkDecrease;
             
             Debug.Log("Shrinking");
             Drew = true;
-            if (Drew)
-            {
-                transform.localScale = InkLevel;
-            }
-            Drew = false;
+            
 
 
         }
 
         }
+    private void LoadScene()
+    {
+        SceneManager.LoadScene("OutroClip");
+    }
     
 }

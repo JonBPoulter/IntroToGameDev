@@ -16,9 +16,9 @@ public class Enemymove : MonoBehaviour
     void Start()
     {
         DoodleMove = false;
-        Speedx = Random.Range(-2f, 2f);
-        Speedy = Random.Range(1f, 2.5f);
-        Debug.Log(Speedx + "X" + Speedy + "Y");
+        Speedx = Random.Range(.5f, 2f);
+        Speedy = Random.Range(-1f, 2f);
+       // Debug.Log(Speedx + "X" + Speedy + "Y");
 
 
     }
@@ -36,7 +36,7 @@ public class Enemymove : MonoBehaviour
         }
         if (DoodleMove)
         {
-            Debug.Log("DoodleMove");
+            //Debug.Log("DoodleMove");
             Vector2 Move = Vector2.LerpUnclamped((Vector2)transform.position, (Vector2)NewPos,Time.smoothDeltaTime);
             transform.position = new Vector3(Move.x, Move.y, transform.position.z);
 
@@ -47,13 +47,15 @@ public class Enemymove : MonoBehaviour
     }
     void ChangeDirection()
     {
-        if (transform.position.x >= 6.7f)
+       
+    
+     if (transform.position.y >= 6.8f)
         {
-            Speedx = Speedx * -1;
+            Speedy = Speedy* -1;
         }
-        if(transform.position.x<= -7f)
+        if(transform.position.y<= -6f)
         {
-            Speedx = Speedx * -1;
+            Speedy = Speedy* -1;
         }
     }
    

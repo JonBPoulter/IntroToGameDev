@@ -51,19 +51,19 @@ public class Enemies : MonoBehaviour {
     {
         while (true)
         {
-            Debug.Log(Spawntime);
+           // Debug.Log(Spawntime);
            
             yield return new WaitForSeconds(Spawntime);
-            Doodlesx = Random.Range(-6.5f, 9.6f);
+            Doodlesy = Random.Range(-6.5f, 7f);
 
             Spawntime = Random.Range(1.5f, 4f);
             Timetime = true;
-            Debug.Log(Spawntime + "AS");
+            //Debug.Log(Spawntime + "AS");
             if (Timetime)
             {
                 Speedx = Random.Range(-2f, 2f);
                 Speedy = Random.Range(1f, 2.5f);
-                DSLocation = new Vector3(Doodlesx, transform.position.y, transform.position.z);
+                DSLocation = new Vector3(transform.position.x, Doodlesy, transform.position.z);
                 int i = Random.Range(0, Doodles.Length);
                 Instantiate(Doodles[i], DSLocation, Quaternion.identity);
                 StartCoroutine(Dcour);

@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114832476019375748}
   m_Layer: 0
   m_Name: doodles-17-128
-  m_TagString: NotDrawn
+  m_TagString: Doodle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

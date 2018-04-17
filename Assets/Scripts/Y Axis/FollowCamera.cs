@@ -15,7 +15,7 @@ public class FollowCamera : MonoBehaviour {
 	void Update () {
 
         speed = Pen.transform.position.y;
-        transform.position = new Vector3(transform.position.x, Pen.transform.position.y-12, transform.position.z);
+        transform.position = new Vector3(transform.position.x, Pen.transform.position.y-18, transform.position.z);
      
 
 

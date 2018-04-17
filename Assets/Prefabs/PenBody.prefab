@@ -146,6 +146,15 @@ MonoBehaviour:
   drawnline: []
   Rx: 0
   Ry: 0
+  TopofPen: {fileID: 0}
+  BottomofPen: {fileID: 0}
+  Camera: {fileID: 0}
+  PenBody: {fileID: 0}
+  LineDoodle: {fileID: 0}
+  LPS:
+  - {x: 0, y: 0, z: 0}
+  LineDirection: {x: 0, y: 0, z: 0}
+  StartP: {x: 0, y: 0, z: 0}
 --- !u!114 &114225691196705156
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -157,6 +166,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b1f2889f88387247b5a17b941675cd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TopPen: {x: 0, y: 0, z: 0}
+  BottomPen: {x: 0, y: 0, z: 0}
+  BotPen: {fileID: 0}
+  TopPenx: 0
   rotateSpeed: 100
 --- !u!212 &212199843127033470
 SpriteRenderer:
